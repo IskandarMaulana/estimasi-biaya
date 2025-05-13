@@ -1,0 +1,148 @@
+.text-small {
+	font-size: 16px;
+}
+
+.text-subsmall {
+	font-size: 20px;
+}
+
+.text-medium {
+	font-size: 26px;
+}
+
+.text-big {
+	font-size: 37px;
+}
+
+.text-large {
+	font-size: 118px;
+}
+
+.modal-title {
+	font-size: 20px;
+}
+
+.table-head {
+	/* background-color: #ffff00; */
+	background-color: #007bff;
+	color: white;
+}
+.calculation {
+	/* background-color: #ffffcc; */
+	background-color: #dfecff;
+	color: rgb(0, 0, 0);
+}
+
+th,
+td {
+	border: 0.5px solid black;
+	word-wrap: break-word;
+}
+
+select,
+input {
+	border: none;
+	outline: none;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.overflow-hidden {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+table {
+	table-layout: fixed;
+}
+
+#drp_type {
+	max-width: 130px; /* Sesuaikan dengan lebar yang diinginkan */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: block;
+}
+
+#pbc_id_activity,
+#mcs_id_activity,
+#dac_category_activity,
+#prc_id_activity,
+#dac_partproblem_activity,
+#dac_partspesification_activity {
+	max-width: 170px; /* Sesuaikan dengan lebar yang diinginkan */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: block;
+	width: 170px;
+}
+
+#atd_id_1,
+#atd_id_2,
+#atd_id_3,
+#atd_id_4,
+#atd_id_5,
+#atd_id_6,
+#atd_id_7,
+#atd_id_8 {
+	max-width: 70px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: block;
+}
+
+#emp_id_8,
+#emp_id_7 {
+	max-width: 130px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: block;
+}
+
+#mpa_note_1,
+#mpa_note_2,
+#mpa_note_3,
+#mpa_note_4,
+#mpa_note_5,
+#mpa_note_6,
+#mpa_note_7,
+#mpa_note_8 {
+	max-width: 85px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: block;
+}
+
+#drp_date {
+	max-width: 150px;
+}
+
+#lne_name {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.disabled-div {
+	pointer-events: none;
+	opacity: 0.5;
+}
+
+.readonly-div {
+	pointer-events: none;
+}
+
+.bold-underline {
+	font-weight: bolder;
+	text-decoration: underline;
+}
