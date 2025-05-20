@@ -15,13 +15,7 @@ return new class extends Migration {
             $table->string('nama_part');
             $table->string('tipe_mobil');
             $table->string('no_part');
-            $table->string('no_part_eff');
-            $table->string('no_part_carb');
-            $table->decimal('harga_part_eff', 15, 2);
-            $table->decimal('harga_part_carb', 15, 2);
-            $table->integer('stock_plan');
-            $table->integer('stock_actual');
-            $table->integer('selisih');
+            $table->decimal('harga_part', 15, 2);
             $table->timestamps();
         });
     }

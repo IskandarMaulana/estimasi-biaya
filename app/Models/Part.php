@@ -13,12 +13,6 @@ class Part extends Model
         'nama_part',
         'tipe_mobil',
         'no_part',
-        'no_part_eff',
-        'no_part_carb',
-        'harga_part_eff',
-        'harga_part_carb',
-        'stock_plan',
-        'stock_actual',
-        'selisih'
+        'harga_part'
     ];
 }

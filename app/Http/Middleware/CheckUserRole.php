@@ -15,15 +15,13 @@ class CheckUserRole
      */
     public function handle(Request $request, Closure $next, ...$roles): Response
     {
-        // Cek apakah user sudah login
         if (!session('logged_in')) {
             return redirect('login')
                 ->with('error', 'Silahkan login terlebih dahulu.');
         }
         
-        // Cek apakah role user sesuai
         if (!in_array(session('role'), $roles)) {
-            return redirect('dashboard')
+            return redirect()->route('dashboard.index')
                 ->with('error', 'Anda tidak memiliki akses ke halaman tersebut.');
         }
         

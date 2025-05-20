@@ -11,10 +11,11 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('materials', function (Blueprint $table) {
-            $table->string('no_material')->primary(); // Kunci utama
+            $table->string('id_material')->primary(); 
+            $table->string('no_material'); 
             $table->string('nama_material');
             $table->string('jenis_material');
-            $table->decimal('harga_satuan', 15, 2); // Desimal dengan presisi
+            $table->decimal('harga_satuan', 15, 2); 
             $table->timestamps();
         });
     }

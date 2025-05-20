@@ -30,17 +30,17 @@ class AuthController extends Controller
         $request->validate([
             'username' => 'required',
             'password' => 'required',
+        ], [
+            'username.required' => 'Username wajib diisi.',
+            'password.required' => 'Password wajib diisi.',
         ]);
+        // dd( Hash::make($request->password));
 
-        // Cari user berdasarkan username
         $user = User::where('username', $request->username)->first();
 
-        // Jika user ditemukan dan password sesuai
         if ($user && Hash::check($request->password, $user->password)) {
-            // Buat manual session login
             Auth::login($user);
-            
-            // Simpan data user ke dalam session
+
             session([
                 'id_user' => $user->id_user,
                 'nama' => $user->nama,
@@ -48,11 +48,10 @@ class AuthController extends Controller
                 'logged_in' => true
             ]);
 
-            return redirect()->intended('dashboard')
+            return redirect()->route('dashboard.index')
                 ->with('success', 'Login berhasil!');
         }
 
-        // Jika gagal login
         return back()
             ->withInput($request->only('username'))
             ->withErrors(['login_error' => 'Username atau password salah!']);
@@ -67,10 +66,10 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
-        
+
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        
+
         return redirect('/login')
             ->with('success', 'Anda telah berhasil logout.');
     }

@@ -21,4 +21,14 @@ class EstimasiBiaya extends Model
         'total_biaya',
         'id_user'
     ];
+    public function details()
+    {
+        return $this->hasMany(DetailEstimasiBiaya::class, 'id_estimasi', 'id_estimasi');
+    }
+    
+    // Relationship to User
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user', 'id_user');
+    }
 }

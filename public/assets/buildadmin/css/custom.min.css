@@ -1342,7 +1342,7 @@ h3,
 	margin-bottom: 10px;
 }
 a {
-	color: #fff;
+	/* color: #fff; */
 	text-decoration: none;
 }
 a,
@@ -5267,8 +5267,8 @@ td {
 	text-align: left;
 }
 
-#datatable-fixed-header th:nth-last-child(2),
-#datatable-fixed-header td:nth-last-child(2) {
+#datatable-fixed-header th:nth-last-child(1),
+#datatable-fixed-header td:nth-last-child(1) {
 	position: -webkit-sticky;
 	position: sticky;
 	right: 0;

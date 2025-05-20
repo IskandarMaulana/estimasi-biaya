@@ -27,20 +27,32 @@ class PartController extends Controller
             'nama_part' => 'required',
             'tipe_mobil' => 'required',
             'no_part' => 'required',
-            'no_part_eff' => 'required',
-            'no_part_carb' => 'required',
-            'harga_part_eff' => 'required|numeric',
-            'harga_part_carb' => 'required|numeric',
-            'stock_plan' => 'required|numeric',
-            'stock_actual' => 'required|numeric',
+            'harga_part' => 'required|numeric'
+        ], [
+            'id_part.required' => 'ID Part wajib diisi.',
+            'id_part.unique' => 'ID Part sudah digunakan, gunakan ID lain.',
+
+            'nama_part.required' => 'Nama Part wajib diisi.',
+
+            'tipe_mobil.required' => 'Tipe Mobil wajib diisi.',
+
+            'no_part.required' => 'Nomor Part wajib diisi.',
+
+            'harga_part.required' => 'Harga Part wajib diisi.',
+            'harga_part.numeric' => 'Harga Part harus berupa angka.',
         ]);
 
-        $part = Part::create($request->all());
-        $part->selisih = $part->stock_actual - $part->stock_plan;
-        $part->save();
+        try {
+            $data = $request->all();
+            Part::create($data);
 
-        return redirect()->route('parts.index')
-            ->with('success', 'Part berhasil ditambahkan');
+            return redirect()->route('parts.index')
+                ->with('success', 'Part berhasil ditambahkan');
+        } catch (\Exception $e) {
+            return back()
+                ->withInput()
+                ->withErrors(['error' => 'Gagal menambahkan Part: ' . $e->getMessage()]);
+        }
     }
 
     public function show(Part $part)
@@ -56,30 +68,48 @@ class PartController extends Controller
     public function update(Request $request, Part $part)
     {
         $request->validate([
+            'id_part' => 'required|unique:parts',
             'nama_part' => 'required',
             'tipe_mobil' => 'required',
             'no_part' => 'required',
-            'no_part_eff' => 'required',
-            'no_part_carb' => 'required',
-            'harga_part_eff' => 'required|numeric',
-            'harga_part_carb' => 'required|numeric',
-            'stock_plan' => 'required|numeric',
-            'stock_actual' => 'required|numeric',
+            'harga_part' => 'required|numeric'
+        ], [
+            'id_part.required' => 'ID Part wajib diisi.',
+            'id_part.unique' => 'ID Part sudah digunakan, gunakan ID lain.',
+
+            'nama_part.required' => 'Nama Part wajib diisi.',
+
+            'tipe_mobil.required' => 'Tipe Mobil wajib diisi.',
+
+            'no_part.required' => 'Nomor Part wajib diisi.',
+
+            'harga_part.required' => 'Harga Part wajib diisi.',
+            'harga_part.numeric' => 'Harga Part harus berupa angka.',
         ]);
 
-        $part->update($request->all());
-        $part->selisih = $part->stock_actual - $part->stock_plan;
-        $part->save();
+        try {
+            $data = $request->all();
+            $part->update($data);
 
-        return redirect()->route('parts.index')
-            ->with('success', 'Part berhasil diperbarui');
+            return redirect()->route('parts.index')
+                ->with('success', 'Part berhasil diperbarui');
+        } catch (\Exception $e) {
+            return back()
+                ->withInput()
+                ->withErrors(['error' => 'Gagal mengubah Part: ' . $e->getMessage()]);
+        }
     }
 
     public function destroy(Part $part)
     {
-        $part->delete();
+        try {
+            $part->delete();
 
-        return redirect()->route('parts.index')
-            ->with('success', 'Part berhasil dihapus');
+            return redirect()->route('parts.index')
+                ->with('success', 'Part berhasil dihapus');
+        } catch (\Exception $e) {
+            return back()
+                ->withErrors(['error' => 'Gagal menghapus Part: ' . $e->getMessage()]);
+        }
     }
 }

@@ -27,12 +27,30 @@ class MaterialController extends Controller
             'nama_material' => 'required',
             'jenis_material' => 'required',
             'harga_satuan' => 'required|numeric',
+        ], [
+            'no_material.required' => 'Nomor Material wajib diisi.',
+            'no_material.unique' => 'Nomor Material sudah ditambahkan, gunakan nomor atau material lain.',
+
+            'nama_material.required' => 'Nama Material wajib diisi.',
+
+            'jenis_material.required' => 'Jenis Material wajib diisi.',
+
+            'harga_satuan.required' => 'Harga Satuan wajib diisi.',
+            'harga_satuan.numeric' => 'Harga Satuan harus berupa angka.',
         ]);
 
-        Material::create($request->all());
 
-        return redirect()->route('materials.index')
-            ->with('success', 'Material berhasil ditambahkan');
+        try {
+            $data = $request->all();
+            Material::create($data);
+
+            return redirect()->route('materials.index')
+                ->with('success', 'Material berhasil ditambahkan');
+        } catch (\Exception $e) {
+            return back()
+                ->withInput()
+                ->withErrors(['error' => 'Gagal menambahkan Material: ' . $e->getMessage()]);
+        }
     }
 
     public function show(Material $material)
@@ -48,22 +66,44 @@ class MaterialController extends Controller
     public function update(Request $request, Material $material)
     {
         $request->validate([
+            'no_material' => 'required',
             'nama_material' => 'required',
             'jenis_material' => 'required',
             'harga_satuan' => 'required|numeric',
+        ], [
+            'no_material.required' => 'Nomor Material wajib diisi.',
+
+            'nama_material.required' => 'Nama Material wajib diisi.',
+
+            'jenis_material.required' => 'Jenis Material wajib diisi.',
+
+            'harga_satuan.required' => 'Harga Satuan wajib diisi.',
+            'harga_satuan.numeric' => 'Harga Satuan harus berupa angka.',
         ]);
 
-        $material->update($request->all());
+        try {
+            $data = $request->all();
+            $material->update($data);
 
-        return redirect()->route('materials.index')
-            ->with('success', 'Material berhasil diperbarui');
+            return redirect()->route('materials.index')
+                ->with('success', 'Material berhasil diperbarui');
+        } catch (\Exception $e) {
+            return back()
+                ->withInput()
+                ->withErrors(['error' => 'Gagal memperbarui Material: ' . $e->getMessage()]);
+        }
     }
 
     public function destroy(Material $material)
     {
-        $material->delete();
+        try {
+            $material->delete();
 
-        return redirect()->route('materials.index')
-            ->with('success', 'Material berhasil dihapus');
+            return redirect()->route('materials.index')
+                ->with('success', 'Material berhasil dihapus');
+        } catch (\Exception $e) {
+            return back()
+                ->withErrors(['error' => 'Gagal menghapus Material: ' . $e->getMessage()]);
+        }
     }
 }

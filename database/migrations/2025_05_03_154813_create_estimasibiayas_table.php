@@ -23,6 +23,9 @@ return new class extends Migration
             $table->decimal('total_biaya', 15, 2);
             $table->string('id_user');
             $table->timestamps();
+            
+            // Adding foreign key relationship to users table
+            $table->foreign('id_user')->references('id_user')->on('users');
         });
     }
 

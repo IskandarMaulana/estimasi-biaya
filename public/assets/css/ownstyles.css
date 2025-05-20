@@ -1,0 +1,14 @@
+.navbar {
+	background: linear-gradient(
+		to right,
+		#ffb5b9,
+		#ff8187,
+		#ee444c,
+		#e43840,
+		#ea1b25
+	);
+}
+
+.copyright {
+	background-color: #ea1b25;
+}
