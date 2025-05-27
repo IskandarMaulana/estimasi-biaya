@@ -9,8 +9,18 @@
 
         <!-- Stats Cards Row -->
         <div class="row mb-4">
+            <!-- Daily Estimation Card -->
+            <div class="col-md-3">
+                <div class="card bg-light-pink">
+                    <div class="card-body text-center">
+                        <h1 class="display-4">{{ $dailyCount }}</h1>
+                        <p>Estimasi Hari Ini</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- Weekly Estimation Card -->
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="card bg-light-pink">
                     <div class="card-body text-center">
                         <h1 class="display-4">{{ $weeklyCount }}</h1>
@@ -20,7 +30,7 @@
             </div>
 
             <!-- Monthly Estimation Card -->
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="card bg-medium-pink">
                     <div class="card-body text-center">
                         <h1 class="display-4">{{ $monthlyCount }}</h1>
@@ -30,7 +40,7 @@
             </div>
 
             <!-- Yearly Estimation Card -->
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="card bg-dark-pink">
                     <div class="card-body text-center">
                         <h1 class="display-4">{{ $yearlyCount }}</h1>

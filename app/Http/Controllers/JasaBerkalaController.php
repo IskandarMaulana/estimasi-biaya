@@ -40,6 +40,7 @@ class JasaBerkalaController extends Controller
             'tipe_mobil' => 'required',
             'jenis_service' => 'required',
             'biaya_jasa' => 'required|numeric',
+            'jenis_service_custom' => 'required_if:jenis_service,CUSTOM',
         ], [
             'id_jasa.required' => 'ID Jasa wajib diisi.',
             'id_jasa.unique' => 'ID Jasa sudah digunakan, gunakan ID lain.',
@@ -49,11 +50,18 @@ class JasaBerkalaController extends Controller
             'jenis_service.required' => 'Jenis Service wajib diisi.',
 
             'biaya_jasa.required' => 'Biaya Jasa wajib diisi.',
-            'biaya_jasa.numeric' => 'Biaya Jasa harus berupa angka.'
+            'biaya_jasa.numeric' => 'Biaya Jasa harus berupa angka.',
+
+            'jenis_service_custom.required_if' => 'Jenis service harus diisi ketika memilih lainnya.'
         ]);
 
         try {
-            $data = $request->all();
+            $data = $request->only(['id_jasa', 'tipe_mobil', 'biaya_jasa']);
+
+            $data['jenis_service'] = $request->jenis_service === 'CUSTOM'
+                ? $request->jenis_service_custom
+                : $request->jenis_service;
+            
             JasaBerkala::create($data);
 
             return redirect()->route('jasaberkalas.index')

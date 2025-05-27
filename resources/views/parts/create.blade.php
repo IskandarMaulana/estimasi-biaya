@@ -50,33 +50,16 @@
                                 <div class="item form-group">
                                     <select class="form-control" id="tipe_mobil" name="tipe_mobil" required>
                                         <option value="" disabled selected>Pilih Tipe Mobil</option>
-                                        <option value="TERIOS M/T" {{ old('tipe_mobil') == 'TERIOS M/T' ? 'selected' : '' }}>
-                                            TERIOS M/T</option>
-                                        <option value="TERIOS A/T" {{ old('tipe_mobil') == 'TERIOS A/T' ? 'selected' : '' }}>
-                                            TERIOS A/T</option>
-                                        <option value="GRANMAX 1.3" {{ old('tipe_mobil') == 'GRANMAX 1.3' ? 'selected' : '' }}>GRANMAX 1.3</option>
-                                        <option value="GRANMAX 1.5" {{ old('tipe_mobil') == 'GRANMAX 1.5' ? 'selected' : '' }}>GRANMAX 1.5</option>
-                                        <option value="XENIA 1.0" {{ old('tipe_mobil') == 'XENIA 1.0' ? 'selected' : '' }}>
-                                            XENIA 1.0</option>
-                                        <option value="XENIA 1.3" {{ old('tipe_mobil') == 'XENIA 1.3' ? 'selected' : '' }}>
-                                            XENIA 1.3</option>
-                                        <option value="SIRION M/T" {{ old('tipe_mobil') == 'SIRION M/T' ? 'selected' : '' }}>
-                                            SIRION M/T</option>
-                                        <option value="SIRION A/T" {{ old('tipe_mobil') == 'SIRION A/T' ? 'selected' : '' }}>
-                                            SIRION A/T</option>
-                                        <option value="TARUNA 1.5" {{ old('tipe_mobil') == 'TARUNA 1.5' ? 'selected' : '' }}>
-                                            TARUNA 1.5</option>
-                                        <option value="TARUNA 1.6" {{ old('tipe_mobil') == 'TARUNA 1.6' ? 'selected' : '' }}>
-                                            TARUNA 1.6</option>
-                                        <option value="ZEBRA 1.3" {{ old('tipe_mobil') == 'ZEBRA 1.3' ? 'selected' : '' }}>
-                                            ZEBRA 1.3</option>
-                                        <option value="ZEBRA 1.5" {{ old('tipe_mobil') == 'ZEBRA 1.5' ? 'selected' : '' }}>
-                                            ZEBRA 1.5</option>
-                                        <option value="CERIA" {{ old('tipe_mobil') == 'CERIA' ? 'selected' : '' }}>CERIA
-                                        </option>
-                                        <option value="TAFT" {{ old('tipe_mobil') == 'TAFT' ? 'selected' : '' }}>TAFT</option>
-                                        <option value="LAINNYA" {{ old('tipe_mobil') == 'LAINNYA' ? 'selected' : '' }}>LAINNYA
-                                        </option>
+                                        <option value="Daihatsu Sigra" {{ old('tipe_mobil') == 'Daihatsu Sigra' ? 'selected' : '' }}>Daihatsu Sigra</option>
+                                        <option value="Daihatsu Xenia" {{ old('tipe_mobil') == 'Daihatsu Xenia' ? 'selected' : '' }}>Daihatsu Xenia</option>
+                                        <option value="Daihatsu Ayla" {{ old('tipe_mobil') == 'Daihatsu Ayla' ? 'selected' : '' }}>Daihatsu Ayla</option>
+                                        <option value="Daihatsu Sirion" {{ old('tipe_mobil') == 'Daihatsu Sirion' ? 'selected' : '' }}>Daihatsu Sirion</option>
+                                        <option value="Daihatsu Granmax" {{ old('tipe_mobil') == 'Daihatsu Granmax' ? 'selected' : '' }}>Daihatsu Granmax</option>
+                                        <option value="Daihatsu Luxio" {{ old('tipe_mobil') == 'Daihatsu Luxio' ? 'selected' : '' }}>Daihatsu Luxio</option>
+                                        <option value="Daihatsu Rocky" {{ old('tipe_mobil') == 'Daihatsu Rocky' ? 'selected' : '' }}>Daihatsu Rocky</option>
+                                        <option value="Daihatsu Terios Old" {{ old('tipe_mobil') == 'Daihatsu Terios Old' ? 'selected' : '' }}>Daihatsu Terios Old</option>
+                                        <option value="Daihatsu Terios All New" {{ old('tipe_mobil') == 'Daihatsu Terios All New' ? 'selected' : '' }}>Daihatsu Terios All New</option>
+                                        <option value="LAINNYA" {{ old('tipe_mobil') == 'LAINNYA' ? 'selected' : '' }}>LAINNYA</option>
                                     </select>
                                 </div>
                             </div>

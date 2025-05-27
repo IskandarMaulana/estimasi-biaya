@@ -73,30 +73,6 @@
     <script src="https://cdn.datatables.net/fixedcolumns/5.0.4/js/fixedColumns.dataTables.js"></script>
     <script src="https://cdn.datatables.net/select/3.0.0/js/dataTables.select.js"></script>
     <script src="https://cdn.datatables.net/select/3.0.0/js/select.dataTables.js"></script> --}}
-
-    <script>
-        // Function to update the date and time
-        function updateDateTime() {
-            var now = new Date();
-            var options = { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit'
-            };
-            $('currentDateTime').textContent = now.toLocaleDateString('en-US', options);
-        }
-        
-        // Update the date and time on page load
-        updateDateTime();
-        
-        // Update the date and time every second
-        setInterval(updateDateTime, 1000);
-    </script>
-
     <!-- Page Specific Scripts -->
     @stack('scripts')
 </body>
@@ -291,7 +267,7 @@
     }
 </script>
 
-<script>
+<!-- <script>
     function updateTime() {
         const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ];
         const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -325,5 +301,27 @@
     $(document).ready(function() {
         updateTime();
     });
-</script>
+</script> 
+<script>
+        // Function to update the date and time
+        function updateDateTime() {
+            var now = new Date();
+            var options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            };
+            $('currentDateTime').textContent = now.toLocaleDateString('en-US', options);
+        }
+        
+        // Update the date and time on page load
+        updateDateTime();
+        
+        // Update the date and time every second
+        setInterval(updateDateTime, 1000);
+    </script>-->
 </html>

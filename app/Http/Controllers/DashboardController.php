@@ -18,11 +18,13 @@ class DashboardController extends Controller
     {
         // Get current date info
         $now = Carbon::now();
+        $startOfDay = $now->copy()->startOfDay();
         $startOfWeek = $now->copy()->startOfWeek();
         $startOfMonth = $now->copy()->startOfMonth();
         $startOfYear = $now->copy()->startOfYear();
 
         // 1. Get statistics for estimations
+        $dailyCount = EstimasiBiaya::where('created_at', '>=', $startOfDay)->count();
         $weeklyCount = EstimasiBiaya::where('created_at', '>=', $startOfWeek)->count();
         $monthlyCount = EstimasiBiaya::where('created_at', '>=', $startOfMonth)->count();
         $yearlyCount = EstimasiBiaya::where('created_at', '>=', $startOfYear)->count();
@@ -92,6 +94,7 @@ class DashboardController extends Controller
             ->get();
 
         return view('dashboard.index', compact(
+            'dailyCount',
             'weeklyCount',
             'monthlyCount',
             'yearlyCount',
